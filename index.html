@@ -39,7 +39,7 @@
                   {props.list.map((notFriend) => (
                     <li key={notFriend.name}>
                       <span>{notFriend.name}</span>
-                      <button>Activate</button>
+                      <button onClick = {() => props.onActivateFriends(notFriend.name)}>Activate</button>
                       <button>Delete</button>
                     </li>
                   ))}
@@ -80,9 +80,20 @@
 
               this.handleAddfriend = this.handleAddfriend.bind(this)
               this.updateInput = this.updateInput.bind(this)
+              this.changeFriendStatus = this.changeFriendStatus.bind(this)
 
             }
 
+            changeFriendStatus (friendToCheck) {
+              this.setState((currentState) => {
+                const personToChange = currentState.friends.find((friend) => friend.name == friendToCheck)
+                if (personToChange.status == true) {
+                  console.log("this is true")
+                } else if (personToChange.status == false){
+                  console.log("this is false")
+                }
+              })
+            }
 
             handleAddfriend() {
               if (this.state.input !== '') {
@@ -139,6 +150,7 @@
 
                   <DeactiveFriendsList
                     list = {this.state.friends.filter((person) => person.status == false)}
+                    onActivateFriends = {this.changeFriendStatus}
                   />
 
                 </div>
