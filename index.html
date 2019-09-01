@@ -88,12 +88,15 @@
             changeFriendStatus (friendToCheck) {
               this.setState((currentState) => {
                 const personToChange = currentState.friends.find((friend) => friend.name == friendToCheck)
-                if (personToChange.active == true) {
-                  console.log("this is true")
 
-                } else if (personToChange.active == false){
-                  console.log("this is false")
+                return {
+                  friends: currentState.friends.filter((friend) => friend.name !== friendToCheck )
+                    .concat({
+                      name: friendToCheck,
+                      active: !personToChange.active
+                    })
                 }
+
               })
             }
 
@@ -150,13 +153,13 @@
                   </div>
 
                   <FriendsList
-                    list = {this.state.friends.filter((person) => person.active == true)}
+                    list = {this.state.friends.filter((person) => person.active === true)}
                     onRemoveFriend = {this.handleRemoveFriend}
                     onDeactivateFriends = {this.changeFriendStatus}
                   />
 
                   <DeactiveFriendsList
-                    list = {this.state.friends.filter((person) => person.active == false)}
+                    list = {this.state.friends.filter((person) => person.active === false)}
                     onRemoveFriend = {this.handleRemoveFriend}
                     onActivateFriends = {this.changeFriendStatus}
                   />
