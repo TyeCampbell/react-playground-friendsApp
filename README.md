@@ -6,7 +6,9 @@ Pretty simple, think 6th grade. Who are my current friends? Add them�
 
 ![Preview of this app](docs/preview.gif)
 
-:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter @TyeDev or vist my personal website at www.TyeCampbell.com.*
+
+:thumbsup: *Thanks for checking out my work on GitHub! For more about me find me on Twitter [@TyeDev](https://twitter.com/tyedev) or vist my personal website [TyeCampbell.com](www.TyeCampbell.com).*
+
 
 
 
